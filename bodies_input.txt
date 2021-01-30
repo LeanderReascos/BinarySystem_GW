@@ -1,0 +1,2 @@
+Name:Body_1,m1:8Msun,r0:-0.01UA 0 0,v0:0 -0.1c 0,color:#FFBD00,
+Name:Body_2,m2:5Msun,r0:0.01UA 0 0,v0:0 0.1c 0,color:#1BB46E,

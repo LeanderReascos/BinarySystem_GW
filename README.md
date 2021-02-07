@@ -1,1 +1,1 @@
-# Binary Sistem with loss energy in form of Gravitational Waves
+# Post-Newtonian approximation system

@@ -1,7 +1,7 @@
 from system_dinamics import *
 import sys
 
-file_name = 'bodies_input.txt'
+
 
 Bodies = []
 
@@ -39,7 +39,7 @@ def convert(string):
    else:
       return float(num)
 
-def makeSystem(file_name):
+def makeSystem(file_name,positionInitial=False):
 
     Bodies = []
     with open(file_name,'r') as f:
@@ -63,11 +63,10 @@ def makeSystem(file_name):
           m = convert(m)
 
           body = Particle(m,[x,y,z],[vx,vy,vz],name=n,color=color)
-          print(body.get_mass(),body.get_position(),body.get_velocity(),body.get_Name(),body.get_Color())
           Bodies.append(body)
           line = f.readline()
 
-    return System_2Bodies(body1=Bodies[0],body2=Bodies[1])
+    return System_2Bodies(body1=Bodies[0],body2=Bodies[1],positionInitial=positionInitial)
 
 def export_data(System,tf,h):
     t = 0
@@ -111,4 +110,4 @@ def export_data(System,tf,h):
 
     System.export_data(tf,h)
 
-export_data(makeSystem(file_name),1.6,8e-4)
+

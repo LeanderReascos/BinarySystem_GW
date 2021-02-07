@@ -28,30 +28,28 @@ class System_VPython(System_2Bodies):
         print(f'Max: {max_distance}\nInitial:\n\tBody1: {aux[0]}\tBody2: {aux[1]}')
         pos_0 = [vp.vector(v[0],v[1],v[2]) for v in aux]
         rad = [p.get_mass()/unities_radius*2 for p in self.__Bodies]
-        self.__Spheres = [vp.sphere(pos=pos_0[i], radius=rad[i], retain=20, make_trail= True) for i in range(len(aux))]
+        self.__Spheres = [vp.sphere(pos=pos_0[i], radius=rad[i], retain=20) for i in range(len(aux))]
 
     def make_animation(self,fps):
-    	import sys
-    	if self.__N % fps != 0:
-    		for i,a in enumerate(self.__Array):
-    			a = list(a)
-    			a += [a[-1]]*(self.__N%fps)
-    			self.__Array[i] = np.array(a)
-    	self.__N = len(self.__Array[0])
-    	seconds = self.__N//fps
-    	frames = seconds*fps
-    	print(f'Second: {seconds}\nFrames: {frames}\nN: {self.__N}')
-    	f = 1
-    	while f <= frames:
-    		vp.rate(fps)
-    		sys.stdout.write(f'\r{f}/{frames}')
-    		sys.stdout.flush()
-    		for i,sphere in enumerate(self.__Spheres):
-    			x,y,z = self.__Array[i][f]
-    			sphere.pos = vp.vector(x,y,z)
-    		f += 1
-    		
+        import sys
+        if self.__N % fps != 0:
+            for i,a in enumerate(self.__Array):
+                a = list(a)
+                a += [a[-1]]*(self.__N%fps)
+                self.__Array[i] = np.array(a)
+        self.__N = len(self.__Array[0])
+        seconds = self.__N//fps
+        frames = seconds*fps
+        print(f'Second: {seconds}\nFrames: {frames}\nN: {self.__N}')
+        f = 1
+        while f <= frames:
+            vp.rate(fps)
+            sys.stdout.write(f'\r{f}/{frames}')
+            sys.stdout.flush()
+            for i,sphere in enumerate(self.__Spheres):
+                x,y,z = self.__Array[i][f]
+                sphere.pos = vp.vector(x,y,z)
+            #self.__scene.capture('out/System2Bodies')
+            f += 1
+            
 
-file_name = 'Export_Data.txt'
-S = System_VPython(file_name)
-S.make_animation(60)

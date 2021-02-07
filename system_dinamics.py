@@ -82,7 +82,7 @@ class Particle():
 
 class System_2Bodies():
     
-    def __init__(self,body1=None,body2=None,f0=None,w=np.array([0,0,1]),file=" "):
+    def __init__(self,body1=None,body2=None,f0=None,w=np.array([0,0,1]),file=" ",positionInitial=False):
         if file == " ":
             m1 = body1.get_mass()
             m2 = body2.get_mass()
@@ -93,18 +93,18 @@ class System_2Bodies():
             self.__a = body2.get_position()-body1.get_position()
             
             if f0 is None:
-                self.__v = body2.get_velocity()-body1.get_velocity()#
+                self.__v = body2.get_velocity()-body1.get_velocity() #
                 v = calc_mag(self.__v)
-                self.__x = v**2/c**2*(1+2/3*(3-self.__n)*v**2/c**2)#(G*self.__M*v/(c**3*calc_mag(self.__a)))**(2/3)#
+                if positionInitial:
+                    self.__x = (G*self.__M*v/(c**3*calc_mag(self.__a)))**(2/3) #
+                else:
+                    self.__x = v**2/c**2*(1+2/3*(3-self.__n)*v**2/c**2) #
                 x0 = self.__x
                 f0 = x0/(2*np.pi)
-                tc= 5/256*G*self.__M/(c**3*self.__n)*(np.pi*G*self.__M*f0/c**3)**(-8/3)
-                print(x0,v,tc)
+                
             else:
                 self.__v = vectorial_product(w,calc_versor(self.__a))
                 x0 = 2*np.pi*f0
-                tc= 5/256*G*self.__M/(c**3*self.__n)*(np.pi*G*self.__M*f0/c**3)**(-8/3) #5/256*G*self.__M/(c**3*self.__n)*1/x0**4*(1+(743/252+11/3*self.__n)*x0)
-                print(x0,tc)
             
             self.__x0 = x0
             self.__Bodies = [body1,body2]

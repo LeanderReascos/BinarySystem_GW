@@ -9,6 +9,14 @@
 #
 #----------------------------------------------------------
 
+import numpy as np
+
+cos = lambda x: np.cos(x)
+sin = lambda x:np.sin(x)
+sqrt = lambda x: np.sqrt(x)
+pi = np.pi
+
+
 def fac(n):
     result = 1
     for i in range(2, n+1):

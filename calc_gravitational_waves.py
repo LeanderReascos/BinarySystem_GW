@@ -2,11 +2,10 @@ from system_dinamics import *
 import sys
 from spin_weighted_Yml import *
 
-cos = np.cos
-sin = np.sin
-sqrt = np.sqrt
+cos = lambda x: np.cos(x)
+sin = lambda x:np.sin(x)
+sqrt = lambda x: np.sqrt(x)
 pi = np.pi
-
 G = 6.674184e-11 #Constante da gravitacao universal
 c = 299792458 #Velocidade da Luz
 gammaE = 0.577216 #Euler Constant
@@ -54,16 +53,3 @@ def calc_WaveForm(r,theta,phi,psi,x,x0,m1,m2):
             H += sYlm(-2,l,m,theta,phi)*h + sYlm(-2,l,-m,theta,phi)*(-1)**(-l)*np.conjugate(h)
     return H
 
-
-
-S = System_2Bodies(file='Export_Data.txt')
-args = S.get_freqsGW()
-x = args[:,0]
-psi = args[:,1]
-m1,m2 = S.get_m1m2()
-H = calc_WaveForm(4e5,0,0,psi,x,S.get_x0(),m1,m2)
-print(len(H))
-
-T = np.arange(0,S.get_tf(),S.get_h())
-plt.plot(T,np.abs(H)*np.sin(x*T))
-plt.show()

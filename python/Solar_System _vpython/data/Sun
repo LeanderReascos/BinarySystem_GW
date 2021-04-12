@@ -1,0 +1,6 @@
+name:Sun
+mass:1.9891e+30
+radius:696340e3
+texture:textures/2k_sun.jpg
+color:(1.0, 0.7411764705882353, 0.0)
+data:data/Sun.npy

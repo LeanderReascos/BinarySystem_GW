@@ -1,0 +1,6 @@
+name:Mercury
+mass:3.3011e+23
+radius:2439.7e3
+texture:textures/2k_mercury.jpg
+color:(0.4235294117647059, 0.20392156862745098, 0.09019607843137255)
+data:data/Mercury.npy

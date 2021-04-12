@@ -1,0 +1,6 @@
+name:Jupiter
+mass:1.8982e+27
+radius:69911e3
+texture:textures/2k_jupiter.jpg
+color:(0.5725490196078431, 0.6627450980392157, 0.7176470588235294)
+data:data/Jupiter.npy

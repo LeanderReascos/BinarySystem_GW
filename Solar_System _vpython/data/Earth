@@ -1,0 +1,6 @@
+name:Earth
+mass:5.9722e+24
+radius:6371e3
+texture:textures/2k_earth_nightmap.jpg
+color:(0.10588235294117647, 0.7058823529411765, 0.43137254901960786)
+data:data/Earth.npy

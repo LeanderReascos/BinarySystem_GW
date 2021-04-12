@@ -1,0 +1,6 @@
+name:Uranus
+mass:8.681e+25
+radius:25362e3
+texture:textures/2k_uranus.jpg
+color:(0.5568627450980392, 0.8470588235294118, 0.9529411764705882)
+data:data/Uranus.npy

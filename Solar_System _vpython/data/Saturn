@@ -1,0 +1,6 @@
+name:Saturn
+mass:5.6834e+26
+radius:58232e3
+texture:textures/2k_saturn.jpg
+color:(0.6901960784313725, 0.6235294117647059, 0.34901960784313724)
+data:data/Saturn.npy

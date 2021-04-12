@@ -1,0 +1,6 @@
+name:Venus
+mass:4.8675e+24
+radius:6051.8e3
+texture:textures/2k_venus_surface.jpg
+color:(0.32941176470588235, 0.5843137254901961, 0.5058823529411764)
+data:data/Venus.npy
